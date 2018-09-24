@@ -1,0 +1,8 @@
+<p id="notice"><%= notice %></p>
+<%= link_to 'Edit', edit_pilot_path(@pilot) %> |
+<%= link_to 'Back', pilots_path %>
+<br>
+<br>
+<img src="<%= @pilot.pic %>" width="250px" alt="pic"><br>
+<h2>Name: <%= @pilot.name%></h2>
+<h2 class="bg-light">Age: <%= @pilot.age%></h2>

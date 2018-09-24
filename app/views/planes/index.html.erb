@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+<h1>Planes</h1>
+<br>
+<%= link_to 'New Plane', new_plane_path %>
+<br>
+<br>
+<table class="table">
+  <thead class="thead-dark">
+    <% @planes.each_with_index do |plane, index| %>
+      <% if index % 2 == 0 %>
+        <tr>
+      <% else %>
+        <tr class="bg-light">
+      <% end %>
+        <td><%= plane.model %></td>
+        <td><%= plane.registration %></td>
+        <td><%= link_to 'Show', plane %></td>
+        <td><%= link_to 'Edit', edit_plane_path(plane) %></td>
+        
+        <% if plane.appointments.length != 0 %>
+          <td>In Use</td>
+        <% else %>
+          <td><%= link_to 'Destroy', plane, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+
+<%#= link_to 'Appointments', appointments_path %>

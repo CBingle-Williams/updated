@@ -1,0 +1,25 @@
+<h1>Appointments</h1>
+<p id="notice"><%= notice %></p>
+<%= link_to 'New Appointment', new_appointment_path %>
+<br>
+<br>
+<% if Appointment.first.nil? %>
+  <h2 class="text-primary">No Appointments Yet :(</h2>
+<% end %>
+<br>
+<table class="table">
+  <thead class="thead-dark">
+    <% @appointments.each do |appointment| %>  
+      <tr>
+        <td><%= appointment.created_at %></td>
+        <td><%= link_to 'Show', appointment %></td>
+        <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
+        <td><%= link_to 'Destroy', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+
+<%#= link_to 'Pilots', pilots_path %>
+<%#= link_to 'Planes', planes_path%>

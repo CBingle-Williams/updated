@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+<h1>Pilots</h1>
+<br>
+<%= link_to 'New Pilot', new_pilot_path %>
+<br>
+<br>
+<table class="table">
+  <thead class="thead-dark">
+    <% @pilots.each_with_index do |pilot, index| %>
+      <% if index % 2 == 0 %>
+        <tr>
+      <% else %>
+        <tr class="bg-light">
+      <% end %>
+        <td><%= pilot.name %></td>
+        <td><%= link_to 'Show', pilot %></td>
+        <td><%= link_to 'Edit', edit_pilot_path(pilot) %></td>
+        
+        <% if pilot.appointments.length != 0 %>
+          <td>In Use</td>
+        <% else %>
+          <td><%= link_to 'Destroy', pilot, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+
+<%#= link_to 'Appointments', appointments_path %>

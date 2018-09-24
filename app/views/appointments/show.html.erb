@@ -1,0 +1,8 @@
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'Edit', edit_appointment_path(@appointment) %> |
+<%= link_to 'Back', appointments_path %>
+<br>
+<br>
+<p><%= Pilot.find(@appointment.pilot_id).name %> is booked to rent <%= Plane.find(@appointment.plane_id).registration %></p>
+<p class="bg-light">Appointment was created at <%= @appointment.created_at %></p>
